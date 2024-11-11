@@ -12,7 +12,6 @@ export default function ProductsPage() {
   if (context) {
     const { loading, products, error, filterByRating } = context;
 
-    if (loading) return <Text>Loading...</Text>;
     if (error) return <Text color="red.500">{error}</Text>;
 
     const handleRatingChange = (value: string) => {
@@ -26,15 +25,19 @@ export default function ProductsPage() {
           Filter by Rating
         </Text>
         <Grid
-          templateColumns={{ sm: 'repeat(3, 1fr)',base: 'repeat(1, 1fr)', md: 'repeat(6, 1fr)' }}
+          templateColumns={{
+            sm: 'repeat(3, 1fr)',
+            base: 'repeat(1, 1fr)',
+            md: 'repeat(6, 1fr)',
+          }}
           gap="2"
           mb="5"
         >
           {['0', '1', '2', '3', '4', '5'].map((rate) => (
             <Button
               key={rate}
-              colorScheme={rating === rate ? 'blue' : 'gray'} 
-              variant={rating === rate ? 'solid' : 'outline'} 
+              colorScheme={rating === rate ? 'blue' : 'gray'}
+              variant={rating === rate ? 'solid' : 'outline'}
               onClick={() => handleRatingChange(rate)}
               width="100%"
             >
@@ -52,9 +55,17 @@ export default function ProductsPage() {
           gap="5"
           mt="5"
         >
-          {products?.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {loading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <ProductCard key={index} isLoading={true} />
+              ))
+            : products?.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  isLoading={false}
+                />
+              ))}
         </Grid>
       </Box>
     );
