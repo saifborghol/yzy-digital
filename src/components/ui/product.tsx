@@ -46,6 +46,7 @@ export default function ProductsPage() {
           ))}
         </Grid>
         <Text mt="2">Minimum Rating: {rating}</Text>
+        <Text mt="2">Product Found: {products?.length}</Text>
         <Grid
           templateColumns={{
             base: 'repeat(1, 1fr)',
