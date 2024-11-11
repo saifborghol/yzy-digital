@@ -1,8 +1,8 @@
 {
-  "name": "nextarter-chakra",
+  "name": "technical-test-for-yzy-by-saif",
   "version": "0.1.0",
   "private": true,
-  "author": "sozonome",
+  "author": "borghol",
   "engines": {
     "node": ">=20.14.x",
     "npm": ">=9"
