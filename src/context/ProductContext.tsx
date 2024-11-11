@@ -23,7 +23,6 @@ export const ProductContext = createContext<ProductContextType | null>(null);
 
 export  const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
-  console.log("🚀 ~ ProductProvider ~ products:", products)
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
