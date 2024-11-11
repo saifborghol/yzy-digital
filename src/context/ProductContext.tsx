@@ -1,5 +1,5 @@
-"use client";
-import React,{ createContext, useEffect, useState, ReactNode } from 'react';
+'use client';
+import React, { createContext, useEffect, useState, ReactNode } from 'react';
 
 import axios from 'axios';
 
@@ -21,7 +21,7 @@ export type ProductContextType = {
 
 export const ProductContext = createContext<ProductContextType | null>(null);
 
-export  const ProductProvider = ({ children }: { children: ReactNode }) => {
+export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
